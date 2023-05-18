@@ -1,0 +1,127 @@
+$hopeblue: #1f2b8e;
+$hopeyellow: #ffc92b;
+$hopepink: #d90ac2;
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.login-wrapper {
+  text-align: center;
+  background-color: white;
+
+  .auth-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin: auto;
+
+    justify-content: center;
+
+    .common-input {
+      color: #212121;
+      height: 30px;
+      padding: 10px;
+      background-color: #ffffff;
+      outline: none;
+      border: 1px solid #212121;
+      border-radius: 3px;
+      margin: 10px 0px;
+    }
+
+    .common-input:focus {
+      outline: 1px solid $hopeblue;
+    }
+
+    ::placeholder {
+      font-family: Oxygen;
+      font-size: 16px;
+      // margin-top: 15px;
+      color: #212121;
+    }
+  }
+  .heading {
+    margin-top: 100px;
+    font-family: sans-serif;
+    font-weight: 700;
+  }
+  .sub-heading {
+    margin-top: -20px;
+    font-family: sans-serif;
+    font-weight: 200;
+  }
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+  &:before {
+    content: "";
+    // use the linear-gradient for the fading effect
+    // use a solid background color for a solid bar
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+  }
+  &:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    // this is really the only tricky part, you need to specify the background color of the container element...
+    color: #818078;
+    background-color: #fcfcfa;
+  }
+}
+
+.login-btn {
+  margin-top: 20px;
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  background-color: $hopeblue;
+  color: #ffffff;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+}
+
+.login-btn:hover {
+  background-color: #0c1356;
+}
+.hopeSmallLogo {
+  width: 55px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.google-btn-cont {
+  .google-btn {
+    margin: auto;
+  }
+}
+
+.bottom-text {
+  font-family: sans-serif;
+  .join-text {
+    font-family: sans-serif;
+    color: $hopeblue;
+    cursor: pointer;
+  }
+}
