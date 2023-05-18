@@ -1,5 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import { RegisterAPI, GoogleSigninAPI } from "../api/AuthAPI";
+import hopeSmall from "../assets/hopeSmall.png";
+import "../Sass/LoginComponent.scss";
+import { useNavigate } from "react-router-dom";
+import GoogleButton from "react-google-button";
+import { toast } from "react-toastify";
 
 export default function RegisterComponent() {
-  return <div>RegisterComponent</div>;
+  let navigate = useNavigate();
+  const [credentials, setCredentials] = useState({});
+  const register = async () => {
+    try {
+      let res = await RegisterAPI(credentials.email, credentials.password);
+      toast.success("Registered to 4Hope!");
+      navigate("/home");
+    } catch (error) {
+      toast.error("Error registering!");
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="login-wrapper">
+      <img src={hopeSmall} className="hopeSmallLogo" />
+      <h1 className="heading">Connect with the global workforce today!</h1>
+
+      <div className="auth-inputs">
+        <input
+          onChange={(event) =>
+            setCredentials({ ...credentials, email: event.target.value })
+          }
+          type="email"
+          className="common-input"
+          placeholder="Email or Phone Number"
+        />
+        <input
+          onChange={(event) =>
+            setCredentials({ ...credentials, password: event.target.value })
+          }
+          type="password"
+          className="common-input"
+          placeholder="Enter your Password"
+        />
+      </div>
+
+      <button onClick={register} className="login-btn">
+        Register
+      </button>
+
+      <p className="bottom-text">
+        Already have an account?
+        <span className="join-text" onClick={() => navigate("/login")}>
+          Log in
+        </span>
+      </p>
+    </div>
+  );
 }
