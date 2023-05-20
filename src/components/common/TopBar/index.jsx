@@ -9,12 +9,18 @@ import {
 } from "react-icons/bi";
 import { FiUser } from "react-icons/fi";
 import { BsBriefcase, BsSearch } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 export default function Topbar() {
+  let navigate = useNavigate();
+
+  const goToRoute = (route) => {
+    navigate(route);
+  };
   return (
     <div className="topbar-main">
       <img className="topbar-logo" src={hopeFull} alt="4hope" />
       <div className="react-icons">
-        <BsSearch size={30} className="react-icon" />
+        <BsSearch onClick={() => goT} size={30} className="react-icon" />
         <BiHomeAlt2 size={30} className="react-icon" />
         <FiUser size={30} className="react-icon" />
         <BsBriefcase size={30} className="react-icon" />
