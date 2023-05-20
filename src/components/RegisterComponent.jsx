@@ -5,6 +5,7 @@ import "../Sass/LoginComponent.scss";
 import { useNavigate } from "react-router-dom";
 import GoogleButton from "react-google-button";
 import { toast } from "react-toastify";
+import { postUserData } from "../api/FirestoreAPIs";
 
 export default function RegisterComponent() {
   let navigate = useNavigate();
@@ -13,6 +14,8 @@ export default function RegisterComponent() {
     try {
       let res = await RegisterAPI(credentials.email, credentials.password);
       toast.success("Registered to 4Hope!");
+      postUserData({ name: credentials.name, email: credentials.email });
+      localStorage.setItem("userEmail", res.user.email);
       navigate("/home");
     } catch (error) {
       toast.error("Error registering!");
@@ -26,6 +29,14 @@ export default function RegisterComponent() {
       <h1 className="heading">Connect with the global workforce today!</h1>
 
       <div className="auth-inputs">
+        <input
+          onChange={(event) =>
+            setCredentials({ ...credentials, name: event.target.value })
+          }
+          type="text"
+          className="common-input"
+          placeholder="Your Name"
+        />
         <input
           onChange={(event) =>
             setCredentials({ ...credentials, email: event.target.value })
