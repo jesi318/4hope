@@ -15,6 +15,7 @@ export default function LoginComponent() {
       toast.success("Logged in to 4Hope!");
       console.log("userResss", res);
       localStorage.setItem("userEmail", res.user.email);
+
       navigate("/home");
     } catch (error) {
       toast.error("Error signing in!");
