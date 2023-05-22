@@ -42,13 +42,17 @@ export default function Topbar() {
     <div className="topbar-main">
       <img className="topbar-logo" src={hopeFull} alt="4hope" />
       <div className="react-icons">
-        <BsSearch
-          onClick={() => goToRoute("/home")}
+        <BsSearch size={30} className="react-icon" />
+        <BiHomeAlt2
           size={30}
           className="react-icon"
+          onClick={() => goToRoute("/home")}
         />
-        <BiHomeAlt2 size={30} className="react-icon" />
-        <FiUser size={30} className="react-icon" />
+        <FiUser
+          size={30}
+          className="react-icon"
+          onClick={() => goToRoute("/profile")}
+        />
         <BsBriefcase size={30} className="react-icon" />
         <BiMessageSquareDetail size={30} className="react-icon" />
         <BiNotification size={30} className="react-icon" />

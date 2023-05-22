@@ -22,28 +22,6 @@ body {
     margin: auto;
 
     justify-content: center;
-
-    .common-input {
-      color: #212121;
-      height: 30px;
-      padding: 10px;
-      background-color: #ffffff;
-      outline: none;
-      border: 1px solid #212121;
-      border-radius: 3px;
-      margin: 10px 0px;
-    }
-
-    .common-input:focus {
-      outline: 1px solid $hopeblue;
-    }
-
-    ::placeholder {
-      font-family: Oxygen;
-      font-size: 16px;
-      // margin-top: 15px;
-      color: #212121;
-    }
   }
   .heading {
     margin-top: 100px;

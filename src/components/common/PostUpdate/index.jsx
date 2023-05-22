@@ -45,7 +45,6 @@ export default function PostStatus({}) {
     //     })[0];
     // });
 
-    console.log(currentUser);
   }, [currentUser.name]);
   return (
     <div className="post-status-main">
